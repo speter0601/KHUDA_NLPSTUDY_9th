@@ -1,0 +1,232 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOLH+RhYqni7kfIdxoXAvld",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/speter0601/KHUDA_NLPSTUDY_9th/blob/main/WEEK9_AIE%26NLP\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "gf7nqTxIus_V"
+      },
+      "outputs": [],
+      "source": [
+        "from openai import OpenAI"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "client = OpenAI(api_key=\"\")\n"
+      ],
+      "metadata": {
+        "id": "spubebeHuxEx"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "response = client.responses.create(\n",
+        "    model=\"gpt-4o-mini\",\n",
+        "    temperature=0.3,\n",
+        "    input=\"테브난 이론에 대해서 알려줘, 문제도 같이\"\n",
+        ")\n",
+        "\n",
+        "print(response.output_text)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Hy-brX7dvC5M",
+        "outputId": "206006c0-c58a-4995-9031-cfbb47beaf1f"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "테브난 이론(Thévenin's Theorem)은 전기 회로를 단순화하는 데 유용한 이론으로, 복잡한 회로를 하나의 전압원과 직렬로 연결된 저항으로 표현할 수 있게 해줍니다. 이 이론은 주로 선형 회로에 적용됩니다.\n",
+            "\n",
+            "### 테브난 정리의 기본 개념\n",
+            "\n",
+            "1. **테브난 전압 (Vth)**: 회로의 두 단자 사이의 개방 회로 전압입니다.\n",
+            "2. **테브난 저항 (Rth)**: 회로의 두 단자 사이의 저항으로, 전압원을 단락하고 전류원을 개방하여 계산합니다.\n",
+            "\n",
+            "### 테브난 정리의 절차\n",
+            "\n",
+            "1. 회로에서 분석할 두 단자를 선택합니다.\n",
+            "2. 두 단자 사이의 개방 회로 전압(Vth)을 계산합니다.\n",
+            "3. 모든 전압원은 단락하고, 전류원은 개방하여 두 단자 사이의 저항(Rth)을 계산합니다.\n",
+            "4. Vth와 Rth를 사용하여 새로운 테브난 회로를 구성합니다.\n",
+            "\n",
+            "### 문제 예제\n",
+            "\n",
+            "**문제**: 다음과 같은 회로가 있습니다. 10V 전압원과 5Ω 저항, 10Ω 저항이 직렬로 연결되어 있고, 이 회로의 두 단자 A와 B 사이의 테브난 전압과 저항을 구하세요.\n",
+            "\n",
+            "#### 회로 설명\n",
+            "\n",
+            "- 전압원: 10V\n",
+            "- 저항 R1: 5Ω\n",
+            "- 저항 R2: 10Ω\n",
+            "\n",
+            "#### 해결 방법\n",
+            "\n",
+            "1. **테브난 전압 (Vth)**:\n",
+            "   - A와 B 사이의 개방 회로 전압을 구합니다.\n",
+            "   - 두 저항이 직렬로 연결되어 있으므로, 전체 전압은 저항에 비례하여 나누어집니다.\n",
+            "   - Vth = 10V (A와 B 사이의 전압)\n",
+            "\n",
+            "2. **테브난 저항 (Rth)**:\n",
+            "   - 전압원을 단락합니다.\n",
+            "   - R1과 R2가 직렬로 연결되어 있으므로, Rth = R1 + R2 = 5Ω + 10Ω = 15Ω\n",
+            "\n",
+            "### 최종 결과\n",
+            "\n",
+            "- 테브난 전압 (Vth) = 10V\n",
+            "- 테브난 저항 (Rth) = 15Ω\n",
+            "\n",
+            "이렇게 테브난 이론을 사용하여 복잡한 회로를 간단하게 분석할 수 있습니다. 추가적인 질문이나 다른 예제가 필요하시면 말씀해 주세요!\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "response = client.responses.create(\n",
+        "    model=\"gpt-4o-mini\",\n",
+        "    temperature=1.0,\n",
+        "    input=\"사과의 정의\"\n",
+        ")\n",
+        "\n",
+        "print(response.output_text)"
+      ],
+      "metadata": {
+        "id": "7MjLu3Ccvgjv",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "e57e7dc8-bb60-49b6-dcaf-bba246979c82"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "사과는 주로 나무에서 자생하는 과일로, 일반적으로 둥글거나 타원형의 모양을 가지고 있습니다. 사과는 다양한 품종이 있으며, 색상은 빨강, 초록, 노랑 등 다양하게 나타납니다. 과육은 아삭하고 달콤하거나 약간 신맛이 나며, 비타민 C와 섬유소가 풍부하여 건강에 유익합니다. \n",
+            "\n",
+            "식용으로 일반적으로 생으로 먹거나, 조리하여 요리에 사용되며, 주스, 잼, 파이 등의 형태로도 소비됩니다. 또한, 사과는 여러 문화에서 상징적인 의미를 지니기도 하며, 특히 유혹이나 지혜의 상징으로 자주 언급됩니다.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "response = client.responses.create(\n",
+        "    model=\"gpt-4o-mini\",\n",
+        "    temperature=1.0,\n",
+        "    input=\"사과의 정의\"\n",
+        ")\n",
+        "\n",
+        "print(response.output_text)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "mFN_eOJAxJ_R",
+        "outputId": "244e5760-4341-4aa9-b8f5-e76d523b67af"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "사과는 한자로 \"사(謝)\"와 \"과(過)\"를 조합한 단어로, 자신의 잘못이나 실수에 대해 상대방에게 용서를 구하는 행동입니다. 이는 사회적인 관계에서 중요한 요소로, 상대방의 감정을 고려하고 관계를 회복하려고 하는 노력의 표현입니다. 사과는 개인적인 감정 교류뿐만 아니라, 직장에서의 의사소통, 사회적 상호작용 등 다양한 상황에서 중요한 역할을 합니다. \n",
+            "\n",
+            "사과는 진정성 있게 이루어져야 하며, 상대방의 감정을 존중하고, 자신의 잘못을 인정하는 것이 핵심입니다.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "order = \"너는 이제부터 들어오는 입력에 대해 동아리 khuda와 관련되었다면 응답을 생성하고 그렇지 않으면, ‘해당 질문에 대해서는 대답할 수 없습니다.’라고 해.\"\n",
+        "prompt = input(\"Prompt : \")\n",
+        "\n",
+        "response = client.responses.create(\n",
+        "    model=\"gpt-4o-mini\",\n",
+        "    temperature=1.0,\n",
+        "\n",
+        "    instructions = order, #system prompt, user prompt 를 분리함\n",
+        "    input= prompt\n",
+        ")\n",
+        "\n",
+        "print(response.output_text)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 400
+        },
+        "id": "mhQmHlmwxNg-",
+        "outputId": "fee6f297-b032-4d37-86f0-1dc5e86f3aff"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "Prompt : 안녕\n"
+          ]
+        },
+        {
+          "output_type": "error",
+          "ename": "AuthenticationError",
+          "evalue": "Error code: 401 - {'error': {'message': 'Missing bearer or basic authentication in header', 'type': 'invalid_request_error', 'param': None, 'code': None}}",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mAuthenticationError\u001b[0m                       Traceback (most recent call last)",
+            "\u001b[0;32m/tmp/ipykernel_2912/3852649597.py\u001b[0m in \u001b[0;36m<cell line: 0>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      2\u001b[0m \u001b[0mprompt\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0minput\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"Prompt : \"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      3\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 4\u001b[0;31m response = client.responses.create(\n\u001b[0m\u001b[1;32m      5\u001b[0m     \u001b[0mmodel\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;34m\"gpt-4o-mini\"\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      6\u001b[0m     \u001b[0mtemperature\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;36m1.0\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.12/dist-packages/openai/resources/responses/responses.py\u001b[0m in \u001b[0;36mcreate\u001b[0;34m(self, background, context_management, conversation, include, input, instructions, max_output_tokens, max_tool_calls, metadata, model, parallel_tool_calls, previous_response_id, prompt, prompt_cache_key, prompt_cache_retention, reasoning, safety_identifier, service_tier, store, stream, stream_options, temperature, text, tool_choice, tools, top_logprobs, top_p, truncation, user, extra_headers, extra_query, extra_body, timeout)\u001b[0m\n\u001b[1;32m    915\u001b[0m         \u001b[0mtimeout\u001b[0m\u001b[0;34m:\u001b[0m \u001b[0mfloat\u001b[0m \u001b[0;34m|\u001b[0m \u001b[0mhttpx\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mTimeout\u001b[0m \u001b[0;34m|\u001b[0m \u001b[0;32mNone\u001b[0m \u001b[0;34m|\u001b[0m \u001b[0mNotGiven\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mnot_given\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    916\u001b[0m     ) -> Response | Stream[ResponseStreamEvent]:\n\u001b[0;32m--> 917\u001b[0;31m         return self._post(\n\u001b[0m\u001b[1;32m    918\u001b[0m             \u001b[0;34m\"/responses\"\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    919\u001b[0m             body=maybe_transform(\n",
+            "\u001b[0;32m/usr/local/lib/python3.12/dist-packages/openai/_base_client.py\u001b[0m in \u001b[0;36mpost\u001b[0;34m(self, path, cast_to, body, content, options, files, stream, stream_cls)\u001b[0m\n\u001b[1;32m   1312\u001b[0m             \u001b[0mmethod\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;34m\"post\"\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0murl\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mpath\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mjson_data\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mbody\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mcontent\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mcontent\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mfiles\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mto_httpx_files\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mfiles\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m**\u001b[0m\u001b[0moptions\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1313\u001b[0m         )\n\u001b[0;32m-> 1314\u001b[0;31m         \u001b[0;32mreturn\u001b[0m \u001b[0mcast\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mResponseT\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mrequest\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mcast_to\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mopts\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mstream\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mstream\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mstream_cls\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mstream_cls\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   1315\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1316\u001b[0m     def patch(\n",
+            "\u001b[0;32m/usr/local/lib/python3.12/dist-packages/openai/_base_client.py\u001b[0m in \u001b[0;36mrequest\u001b[0;34m(self, cast_to, options, stream, stream_cls)\u001b[0m\n\u001b[1;32m   1085\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1086\u001b[0m                 \u001b[0mlog\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mdebug\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"Re-raising status error\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 1087\u001b[0;31m                 \u001b[0;32mraise\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_make_status_error_from_response\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0merr\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mresponse\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0;32mNone\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   1088\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1089\u001b[0m             \u001b[0;32mbreak\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mAuthenticationError\u001b[0m: Error code: 401 - {'error': {'message': 'Missing bearer or basic authentication in header', 'type': 'invalid_request_error', 'param': None, 'code': None}}"
+          ]
+        }
+      ]
+    }
+  ]
+}
